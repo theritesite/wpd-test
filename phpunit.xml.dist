@@ -2,6 +2,10 @@
 		bootstrap="tests/phpunit/includes/bootstrap.php"
 		backupGlobals="false"
 		colors="true"
+		convertErrorsToExceptions="true"
+        	convertNoticesToExceptions="true"
+        	convertWarningsToExceptions="true"
+        	verbose="true"
 		beStrictAboutTestsThatDoNotTestAnything="true"
 		>
 	<testsuites>
@@ -9,6 +13,9 @@
 		<testsuite name="default">
 			<directory suffix=".php">tests/phpunit/tests</directory>
 			<exclude>tests/phpunit/tests/rest-api/rest-autosaves-controller.php</exclude>
+		</testsuite>
+		<testsuite name="woocommerce">
+			<directory suffix=".php">tests/woocommerce/phpunit/tests/unit-tests</directory>
 		</testsuite>
 		<!-- Sets the DOING_AUTOSAVE constant, so needs to be run last -->
 		<testsuite name="restapi-autosave">
@@ -71,7 +78,34 @@
 				<file>src/wp-includes/ms-deprecated.php</file>
 				<file>src/wp-includes/pluggable-deprecated.php</file>
 				<file>src/wp-includes/rss.php</file>
+
+				<directory suffix=".php">./src/wp-contents/woocommerce/includes/admin/helper/views</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/admin/importers/views</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/admin/meta-boxes/views</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/admin/plugin-updates/views</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/admin/views</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/api/legacy</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/api/v1</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/legacy</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/libraries</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/shipping/legacy-flat-rate</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/shipping/legacy-free-shipping</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/shipping/legacy-international-delivery</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/shipping/legacy-local-delivery</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/shipping/legacy-local-pickup</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/updates</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/vendor</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/includes/widgets</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/packages</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/src</directory>
+                                <directory suffix=".php">./src/wp-contents/woocommerce/vendor</directory>
+                                <file>./src/wp-contents/woocommerce/includes/wc-deprecated-functions.php</file>
+                                <file>./src/wp-contents/woocommerce/includes/wc-template-hooks.php</file>
+                                <file>./src/wp-contents/woocommerce/includes/wc-widget-functions.php</file>
 			</exclude>
+			<directory suffix=".php">./src/wp-contents/plugins/woocommerce/includes</directory>
+			<file>./src/wp-contents/plugins/woocommerce/woocommerce.php</file>
+			<file>./src/wp-contents/plugins/woocommerce/uninstall.php</file>
 		</whitelist>
 	</filter>
 </phpunit>
